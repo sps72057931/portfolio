@@ -52,7 +52,8 @@ function renderElement({ el, onSelect, selectedId, onUpdate, dragging, setDraggi
 
   let content;
   switch (el.type) {
-    case "heading":
+    case "heading": {
+      // FIX: wrapped in block scope so `const Tag` doesn't leak into other cases
       const Tag = p.level || "h2";
       content = (
         <Tag
@@ -63,6 +64,7 @@ function renderElement({ el, onSelect, selectedId, onUpdate, dragging, setDraggi
         >{p.text}</Tag>
       );
       break;
+    }
     case "paragraph":
       content = (
         <p
@@ -456,7 +458,13 @@ export default function PageBuilder() {
   // ── Keyboard shortcuts ──
   useEffect(() => {
     const handler = (e) => {
-      if (e.key === "Delete" && selectedId && document.activeElement.tagName !== "INPUT" && document.activeElement.tagName !== "TEXTAREA" && !document.activeElement.contentEditable === "true") {
+      const activeEl = document.activeElement;
+      const isEditing =
+        activeEl.tagName === "INPUT" ||
+        activeEl.tagName === "TEXTAREA" ||
+        activeEl.contentEditable === "true"; // FIX: correct operator precedence
+
+      if (e.key === "Delete" && selectedId && !isEditing) {
         deleteElement(selectedId);
       }
       if (e.key === "Escape") setSelectedId(null);
