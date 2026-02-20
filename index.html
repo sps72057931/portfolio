@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shivendra Pratap Singh — Full Stack Developer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-bracket">&lt;</span>SPS<span class="logo-bracket">/&gt;</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#achievements" class="nav-link">Achievements</a></li>
+      <li><a href="blog.html" class="nav-link">Blog</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="theme-icon sun">☀</span>
+        <span class="theme-icon moon">◑</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="grid-overlay"></div>
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>
+        Available for Internships & Projects
+      </div>
+      <h1 class="hero-name reveal">
+        <span class="name-line">Shivendra</span>
+        <span class="name-line accent-text">Pratap Singh</span>
+      </h1>
+      <p class="hero-role reveal">
+        <span class="typing-text" id="typingText"></span><span class="cursor">|</span>
+      </p>
+      <p class="hero-desc reveal">
+        B.Tech CSE @ IIIT Sonepat · Building full-stack experiences with MERN · 
+        LeetCode 1474 · 100+ DSA Problems Solved
+      </p>
+      <div class="hero-actions reveal">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="resume.pdf" download class="btn btn-outline">
+          <span>↓</span> Download Resume
+        </a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="stat">
+          <span class="stat-num">8.5</span>
+          <span class="stat-label">CGPA</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">1474</span>
+          <span class="stat-label">LeetCode</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">100+</span>
+          <span class="stat-label">Problems</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">4</span>
+          <span class="stat-label">Projects</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// 01</span>
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p class="about-intro">
+            I'm a passionate <strong>Computer Science Engineering student</strong> at 
+            IIIT Sonepat (2023–2027) with a strong foundation in full-stack web development 
+            and competitive programming.
+          </p>
+          <p>
+            My journey in tech started with solving algorithmic problems and quickly evolved 
+            into building real-world applications. I specialize in the <strong>MERN Stack</strong> 
+            and have a keen interest in system design, data structures, and creating 
+            seamless user experiences.
+          </p>
+          <p>
+            When I'm not coding, I'm pushing my problem-solving skills on LeetCode and 
+            CodeChef, continuously leveling up my competitive programming rating.
+          </p>
+          <div class="about-info-grid">
+            <div class="info-item">
+              <span class="info-label">Institution</span>
+              <span class="info-value">IIIT Sonepat</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Degree</span>
+              <span class="info-value">B.Tech CSE</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Duration</span>
+              <span class="info-value">2023 – 2027</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">CGPA</span>
+              <span class="info-value">8.5 / 10</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual reveal">
+          <div class="code-card">
+            <div class="code-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="code-title">profile.json</span>
+            </div>
+            <pre class="code-body"><code>{
+  <span class="c-key">"name"</span>: <span class="c-str">"Shivendra Pratap Singh"</span>,
+  <span class="c-key">"role"</span>: <span class="c-str">"Full Stack Developer"</span>,
+  <span class="c-key">"university"</span>: <span class="c-str">"IIIT Sonepat"</span>,
+  <span class="c-key">"year"</span>: <span class="c-num">2</span>,
+  <span class="c-key">"cgpa"</span>: <span class="c-num">8.5</span>,
+  <span class="c-key">"stack"</span>: [
+    <span class="c-str">"MongoDB"</span>, <span class="c-str">"Express"</span>,
+    <span class="c-str">"React"</span>, <span class="c-str">"Node.js"</span>
+  ],
+  <span class="c-key">"available"</span>: <span class="c-bool">true</span>,
+  <span class="c-key">"openTo"</span>: <span class="c-str">"Internships"</span>
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SKILLS ═══ -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// 02</span>
+        <h2 class="section-title">Skills & Technologies</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category reveal">
+          <h3 class="skill-cat-title">
+            <span class="cat-icon">◈</span> Languages
+          </h3>
+          <div class="skill-pills">
+            <span class="pill pill-primary">C++</span>
+            <span class="pill pill-primary">Java</span>
+            <span class="pill pill-primary">Python</span>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <h3 class="skill-cat-title">
+            <span class="cat-icon">◈</span> Frontend
+          </h3>
+          <div class="skill-pills">
+            <span class="pill">HTML5</span>
+            <span class="pill">CSS3</span>
+            <span class="pill">JavaScript</span>
+            <span class="pill pill-accent">ReactJS</span>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <h3 class="skill-cat-title">
+            <span class="cat-icon">◈</span> Backend
+          </h3>
+          <div class="skill-pills">
+            <span class="pill pill-accent">Node.js</span>
+            <span class="pill pill-accent">Express.js</span>
+            <span class="pill">Socket.io</span>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <h3 class="skill-cat-title">
+            <span class="cat-icon">◈</span> Database
+          </h3>
+          <div class="skill-pills">
+            <span class="pill">MongoDB</span>
+            <span class="pill">Mongoose</span>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <h3 class="skill-cat-title">
+            <span class="cat-icon">◈</span> Tools
+          </h3>
+          <div class="skill-pills">
+            <span class="pill">Git</span>
+            <span class="pill">GitHub</span>
+            <span class="pill">VS Code</span>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <h3 class="skill-cat-title">
+            <span class="cat-icon">◈</span> Core CS
+          </h3>
+          <div class="skill-pills">
+            <span class="pill pill-ghost">OOP</span>
+            <span class="pill pill-ghost">OS</span>
+            <span class="pill pill-ghost">CN</span>
+            <span class="pill pill-ghost">DBMS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROJECTS ═══ -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// 03</span>
+        <h2 class="section-title">Featured Projects</h2>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card reveal">
+          <div class="project-number">01</div>
+          <div class="project-tags">
+            <span class="tag">MongoDB</span><span class="tag">Express</span>
+            <span class="tag">React</span><span class="tag">Node.js</span>
+          </div>
+          <h3 class="project-title">Food Delivery Web App</h3>
+          <p class="project-desc">
+            Full-stack food delivery platform built with MERN stack. Features user 
+            authentication, restaurant browsing, cart management, and order tracking 
+            with a clean, responsive UI.
+          </p>
+          <div class="project-features">
+            <span>✓ User Auth & JWT</span>
+            <span>✓ Order Management</span>
+            <span>✓ Cart System</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">GitHub →</a>
+            <a href="#" class="project-link project-live">Live Demo ↗</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-number">02</div>
+          <div class="project-tags">
+            <span class="tag">MERN</span><span class="tag">Socket.io</span>
+            <span class="tag">WebSocket</span>
+          </div>
+          <h3 class="project-title">Quick Chat Application</h3>
+          <p class="project-desc">
+            Real-time chat application using Socket.io for bidirectional communication. 
+            Supports multiple rooms, user presence indicators, and message history 
+            with MongoDB persistence.
+          </p>
+          <div class="project-features">
+            <span>✓ Real-time Messaging</span>
+            <span>✓ Room Support</span>
+            <span>✓ Online Status</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">GitHub →</a>
+            <a href="#" class="project-link project-live">Live Demo ↗</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-number">03</div>
+          <div class="project-tags">
+            <span class="tag">Node.js</span><span class="tag">HTML</span>
+            <span class="tag">CSS</span><span class="tag">PDF</span>
+          </div>
+          <h3 class="project-title">Word to PDF Converter</h3>
+          <p class="project-desc">
+            Web application that converts .docx files to PDF format using Node.js 
+            backend. Clean drag-and-drop interface with instant conversion and 
+            download functionality.
+          </p>
+          <div class="project-features">
+            <span>✓ Drag & Drop Upload</span>
+            <span>✓ Instant Conversion</span>
+            <span>✓ Batch Support</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">GitHub →</a>
+            <a href="#" class="project-link project-live">Live Demo ↗</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-number">04</div>
+          <div class="project-tags">
+            <span class="tag">MERN</span><span class="tag">JWT</span>
+            <span class="tag">bcrypt</span>
+          </div>
+          <h3 class="project-title">MERN Auth System</h3>
+          <p class="project-desc">
+            Production-ready authentication system with JWT tokens, bcrypt password 
+            hashing, refresh tokens, protected routes, and role-based access control. 
+            Reusable boilerplate.
+          </p>
+          <div class="project-features">
+            <span>✓ JWT + Refresh Tokens</span>
+            <span>✓ Role-based Access</span>
+            <span>✓ Protected Routes</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">GitHub →</a>
+            <a href="#" class="project-link project-live">Live Demo ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ACHIEVEMENTS ═══ -->
+  <section class="section section-alt" id="achievements">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// 04</span>
+        <h2 class="section-title">Achievements</h2>
+      </div>
+      <div class="achievements-grid">
+        <div class="achievement-card reveal">
+          <div class="achievement-logo leetcode">LC</div>
+          <div class="achievement-info">
+            <h3>LeetCode</h3>
+            <div class="achievement-rating">1474</div>
+            <p>Competitive Rating</p>
+            <div class="rating-bar">
+              <div class="rating-fill" style="--fill: 73%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="achievement-card reveal">
+          <div class="achievement-logo codechef">CC</div>
+          <div class="achievement-info">
+            <h3>CodeChef</h3>
+            <div class="achievement-rating">1250</div>
+            <p>Competitive Rating</p>
+            <div class="rating-bar">
+              <div class="rating-fill" style="--fill: 50%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="achievement-card reveal">
+          <div class="achievement-logo dsa">DSA</div>
+          <div class="achievement-info">
+            <h3>Problem Solving</h3>
+            <div class="achievement-rating">100+</div>
+            <p>Problems Solved</p>
+            <div class="rating-bar">
+              <div class="rating-fill" style="--fill: 80%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// 05</span>
+        <h2 class="section-title">Get In Touch</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <p class="contact-intro">
+            I'm actively looking for internship opportunities and interesting 
+            projects to collaborate on. Whether you have a question or just want 
+            to say hi, my inbox is always open!
+          </p>
+          <div class="contact-links">
+            <a href="mailto:shivendra@example.com" class="contact-item">
+              <span class="contact-icon">✉</span>
+              <span>shivendra@example.com</span>
+            </a>
+            <a href="https://github.com/" class="contact-item" target="_blank">
+              <span class="contact-icon">⌥</span>
+              <span>github.com/shivendra</span>
+            </a>
+            <a href="https://linkedin.com/" class="contact-item" target="_blank">
+              <span class="contact-icon">⊞</span>
+              <span>linkedin.com/in/shivendra</span>
+            </a>
+          </div>
+        </div>
+        <form class="contact-form reveal" id="contactForm">
+          <div class="form-group">
+            <label class="form-label" for="name">Name</label>
+            <input type="text" id="name" class="form-input" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input type="email" id="email" class="form-input" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea id="message" class="form-input form-textarea" placeholder="Your message..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Send Message →</button>
+          <div class="form-success" id="formSuccess">
+            ✓ Message sent! I'll get back to you soon.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo-bracket">&lt;</span>SPS<span class="logo-bracket">/&gt;</span>
+        </div>
+        <p class="footer-text">
+          Built with ❤ by Shivendra Pratap Singh · IIIT Sonepat 2027
+        </p>
+        <div class="footer-links">
+          <a href="https://github.com/" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+          <a href="https://leetcode.com/" target="_blank">LeetCode</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

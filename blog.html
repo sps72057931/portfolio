@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Shivendra Pratap Singh</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-logo">
+      <a href="index.html"><span class="logo-bracket">&lt;</span>SPS<span class="logo-bracket">/&gt;</span></a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="index.html#about" class="nav-link">About</a></li>
+      <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+      <li><a href="blog.html" class="nav-link active">Blog</a></li>
+      <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle">
+        <span class="theme-icon sun">☀</span>
+        <span class="theme-icon moon">◑</span>
+      </button>
+      <button class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Blog Hero -->
+  <div class="blog-hero">
+    <div class="container">
+      <span class="section-tag">// thoughts & learnings</span>
+      <h1 class="reveal">My <span class="accent-text">Blog</span></h1>
+      <p class="reveal">Articles on web development, DSA, system design, and my CS journey.</p>
+      <div class="blog-search reveal">
+        <input type="text" id="blogSearch" placeholder="Search articles..." />
+      </div>
+      <div class="blog-tags reveal">
+        <span class="blog-tag active" data-tag="all">All</span>
+        <span class="blog-tag" data-tag="mern">MERN Stack</span>
+        <span class="blog-tag" data-tag="dsa">DSA</span>
+        <span class="blog-tag" data-tag="react">React</span>
+        <span class="blog-tag" data-tag="system-design">System Design</span>
+        <span class="blog-tag" data-tag="career">Career</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blog Grid -->
+  <main class="container">
+    <div class="blog-grid">
+
+      <article class="blog-card reveal" data-tag="mern">
+        <div class="blog-card-img">🍃</div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-card-tag">MERN Stack</span>
+            <span>Jan 15, 2025</span>
+            <span>5 min read</span>
+          </div>
+          <h2 class="blog-card-title">Building a Real-Time Chat App with Socket.io and MERN</h2>
+          <p class="blog-card-excerpt">
+            A complete walkthrough of building a production-ready real-time chat application 
+            using MongoDB, Express, React, Node.js, and Socket.io with room support.
+          </p>
+          <a href="#" class="blog-card-read">Read Article →</a>
+        </div>
+      </article>
+
+      <article class="blog-card reveal" data-tag="dsa">
+        <div class="blog-card-img">🧩</div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-card-tag">DSA</span>
+            <span>Feb 3, 2025</span>
+            <span>8 min read</span>
+          </div>
+          <h2 class="blog-card-title">My Journey from 0 to 100+ LeetCode Problems</h2>
+          <p class="blog-card-excerpt">
+            How I systematically approached competitive programming, the patterns I learned, 
+            common mistakes to avoid, and resources that helped me reach a 1474 rating.
+          </p>
+          <a href="#" class="blog-card-read">Read Article →</a>
+        </div>
+      </article>
+
+      <article class="blog-card reveal" data-tag="react">
+        <div class="blog-card-img">⚛️</div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-card-tag">React</span>
+            <span>Feb 20, 2025</span>
+            <span>6 min read</span>
+          </div>
+          <h2 class="blog-card-title">React Hooks You Probably Aren't Using Enough</h2>
+          <p class="blog-card-excerpt">
+            Deep dive into useCallback, useMemo, useRef, and custom hooks — with real 
+            examples from projects I've built and when to actually use them.
+          </p>
+          <a href="#" class="blog-card-read">Read Article →</a>
+        </div>
+      </article>
+
+      <article class="blog-card reveal" data-tag="mern">
+        <div class="blog-card-img">🔐</div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-card-tag">MERN Stack</span>
+            <span>Mar 5, 2025</span>
+            <span>10 min read</span>
+          </div>
+          <h2 class="blog-card-title">JWT Authentication with Refresh Tokens in Node.js</h2>
+          <p class="blog-card-excerpt">
+            A production-ready implementation of JWT authentication including access tokens, 
+            refresh tokens, token rotation, and protected route middleware.
+          </p>
+          <a href="#" class="blog-card-read">Read Article →</a>
+        </div>
+      </article>
+
+      <article class="blog-card reveal" data-tag="system-design">
+        <div class="blog-card-img">🏗️</div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-card-tag">System Design</span>
+            <span>Mar 18, 2025</span>
+            <span>12 min read</span>
+          </div>
+          <h2 class="blog-card-title">Understanding REST API Design Principles</h2>
+          <p class="blog-card-excerpt">
+            From resource naming to HTTP methods, status codes, versioning, pagination, 
+            and error handling — everything you need to design clean REST APIs.
+          </p>
+          <a href="#" class="blog-card-read">Read Article →</a>
+        </div>
+      </article>
+
+      <article class="blog-card reveal" data-tag="career">
+        <div class="blog-card-img">🎯</div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-card-tag">Career</span>
+            <span>Apr 1, 2025</span>
+            <span>7 min read</span>
+          </div>
+          <h2 class="blog-card-title">How I Built 4 Projects in My First Year of Engineering</h2>
+          <p class="blog-card-excerpt">
+            My approach to balancing academics and side projects, how I chose what to build, 
+            what I learned from each project, and what I'd do differently.
+          </p>
+          <a href="#" class="blog-card-read">Read Article →</a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo-bracket">&lt;</span>SPS<span class="logo-bracket">/&gt;</span>
+        </div>
+        <p class="footer-text">Shivendra Pratap Singh · IIIT Sonepat 2027</p>
+        <div class="footer-links">
+          <a href="https://github.com/" target="_blank">GitHub</a>
+          <a href="https://leetcode.com/" target="_blank">LeetCode</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
