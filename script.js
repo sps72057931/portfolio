@@ -1,7 +1,32 @@
 // ═══════════════════════════════════════════════
 //   PORTFOLIO JAVASCRIPT — Shivendra Pratap Singh
-//   Modules: Theme, Nav, Typing, ScrollReveal, Form
+//   Fixed: Hero visibility, scroll reveal, all animations
 // ═══════════════════════════════════════════════
+
+/* CRITICAL: Ensure js-ready is set so reveal CSS is active */
+document.body.classList.add('js-ready');
+
+/* ══════════════════════════════════════
+   CRITICAL FIX: Make hero visible immediately
+   Don't wait for scroll — hero is already in viewport
+══════════════════════════════════════ */
+function initHeroReveal() {
+  const heroReveals = document.querySelectorAll('.hero .reveal');
+  heroReveals.forEach((el, i) => {
+    // Stagger each hero element with delay
+    setTimeout(() => {
+      el.classList.add('visible');
+    }, 200 + i * 160);
+  });
+}
+
+// Run as soon as DOM is ready — use both paths to be safe
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initHeroReveal);
+} else {
+  // DOM already loaded (script is deferred or at bottom)
+  initHeroReveal();
+}
 
 /* ── 1. THEME TOGGLE ── */
 const themeToggle = document.getElementById('themeToggle');
@@ -23,7 +48,6 @@ const navbar = document.getElementById('navbar');
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
-// Sticky navbar with scroll
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
     navbar?.classList.add('scrolled');
@@ -33,13 +57,11 @@ window.addEventListener('scroll', () => {
   updateActiveNav();
 });
 
-// Hamburger menu toggle
 hamburger?.addEventListener('click', () => {
   hamburger.classList.toggle('active');
   navLinks?.classList.toggle('open');
 });
 
-// Close menu when link clicked
 navLinks?.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('click', () => {
     hamburger?.classList.remove('active');
@@ -47,17 +69,14 @@ navLinks?.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
-// Highlight active nav based on scroll position
 function updateActiveNav() {
   const sections = document.querySelectorAll('section[id]');
   const scrollPos = window.scrollY + 120;
-
   sections.forEach(section => {
     const top = section.offsetTop;
     const height = section.offsetHeight;
     const id = section.getAttribute('id');
     const navLink = document.querySelector(`.nav-link[href="#${id}"]`);
-
     if (scrollPos >= top && scrollPos < top + height) {
       document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
       navLink?.classList.add('active');
@@ -82,27 +101,18 @@ let isPaused = false;
 
 function typeText() {
   if (!typingEl) return;
-
   const currentRole = roles[roleIndex];
 
   if (!isDeleting) {
-    // Typing forward
     typingEl.textContent = currentRole.slice(0, charIndex + 1);
     charIndex++;
-
     if (charIndex === currentRole.length) {
-      // Pause at end before deleting
       isPaused = true;
-      setTimeout(() => {
-        isPaused = false;
-        isDeleting = true;
-      }, 2200);
+      setTimeout(() => { isPaused = false; isDeleting = true; }, 2200);
     }
   } else {
-    // Deleting
     typingEl.textContent = currentRole.slice(0, charIndex - 1);
     charIndex--;
-
     if (charIndex === 0) {
       isDeleting = false;
       roleIndex = (roleIndex + 1) % roles.length;
@@ -110,33 +120,29 @@ function typeText() {
   }
 
   if (!isPaused) {
-    const speed = isDeleting ? 50 : 90;
-    setTimeout(typeText, speed);
+    setTimeout(typeText, isDeleting ? 50 : 90);
   }
 }
 
-// Start typing after short delay
-setTimeout(typeText, 800);
+setTimeout(typeText, 1200);
 
-/* ── 4. SCROLL REVEAL ── */
+/* ── 4. SCROLL REVEAL (non-hero sections only) ── */
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        // Optionally unobserve after reveal for performance
-        // revealObserver.unobserve(entry.target);
       }
     });
   },
   {
-    threshold: 0.12,
-    rootMargin: '0px 0px -40px 0px'
+    threshold: 0.08,
+    rootMargin: '0px 0px -20px 0px'
   }
 );
 
-// Observe all elements with reveal class
-document.querySelectorAll('.reveal').forEach(el => {
+// Only observe non-hero reveal elements (hero handled separately above)
+document.querySelectorAll('.section .reveal, .blog-hero .reveal, .blog-grid .reveal').forEach(el => {
   revealObserver.observe(el);
 });
 
@@ -146,29 +152,21 @@ const formSuccess = document.getElementById('formSuccess');
 
 contactForm?.addEventListener('submit', (e) => {
   e.preventDefault();
-
   const submitBtn = contactForm.querySelector('button[type="submit"]');
   const originalText = submitBtn.textContent;
-
-  // Show loading state
   submitBtn.textContent = 'Sending...';
   submitBtn.disabled = true;
 
-  // Simulate API call (replace with actual fetch to backend)
   setTimeout(() => {
     submitBtn.textContent = originalText;
     submitBtn.disabled = false;
     contactForm.reset();
     formSuccess?.classList.add('show');
-
-    // Hide success message after 4 seconds
-    setTimeout(() => {
-      formSuccess?.classList.remove('show');
-    }, 4000);
+    setTimeout(() => formSuccess?.classList.remove('show'), 4000);
   }, 1200);
 });
 
-/* ── 6. SMOOTH SCROLL for anchor links ── */
+/* ── 6. SMOOTH SCROLL ── */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
     const targetId = anchor.getAttribute('href');
@@ -176,28 +174,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const target = document.querySelector(targetId);
     if (target) {
       e.preventDefault();
-      const offsetTop = target.offsetTop - parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height') || 70);
-      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+      const navHeight = 70;
+      window.scrollTo({ top: target.offsetTop - navHeight, behavior: 'smooth' });
     }
   });
 });
 
-/* ── 7. BLOG PAGE — Search & Filter ── */
+/* ── 7. BLOG — Search & Filter ── */
 function initBlog() {
   const searchInput = document.getElementById('blogSearch');
   const blogCards = document.querySelectorAll('.blog-card');
   const blogTags = document.querySelectorAll('.blog-tag');
-
-  if (!searchInput) return; // Not on blog page
+  if (!searchInput) return;
 
   let activeTag = 'all';
 
-  // Search filter
-  searchInput.addEventListener('input', () => {
-    filterCards();
-  });
+  searchInput.addEventListener('input', filterCards);
 
-  // Tag filter
   blogTags.forEach(tag => {
     tag.addEventListener('click', () => {
       blogTags.forEach(t => t.classList.remove('active'));
@@ -213,10 +206,8 @@ function initBlog() {
       const title = card.querySelector('.blog-card-title')?.textContent.toLowerCase() || '';
       const excerpt = card.querySelector('.blog-card-excerpt')?.textContent.toLowerCase() || '';
       const cardTag = card.dataset.tag || '';
-
       const matchesSearch = title.includes(query) || excerpt.includes(query);
       const matchesTag = activeTag === 'all' || cardTag === activeTag;
-
       card.style.display = (matchesSearch && matchesTag) ? '' : 'none';
     });
   }
@@ -224,7 +215,7 @@ function initBlog() {
 
 initBlog();
 
-/* ── 8. Rating bar animation on scroll ── */
+/* ── 8. Rating bar animation ── */
 const ratingObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -236,16 +227,4 @@ const ratingObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.rating-fill').forEach(el => {
   el.style.animationPlayState = 'paused';
   ratingObserver.observe(el);
-});
-
-/* ── 9. PAGE LOAD animation ── */
-document.addEventListener('DOMContentLoaded', () => {
-  // Trigger hero reveals on page load
-  setTimeout(() => {
-    document.querySelectorAll('.hero .reveal').forEach((el, i) => {
-      setTimeout(() => {
-        el.classList.add('visible');
-      }, i * 150);
-    });
-  }, 100);
 });

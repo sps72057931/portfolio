@@ -759,15 +759,37 @@ code, pre { font-family: var(--font-mono); }
 
 /* ════════════════════════════════
    REVEAL ANIMATIONS
+   Strategy: hidden by default, .visible added by JS.
+   Fallback: if JS never runs, @media prefers-reduced-motion
+   or no-js body class shows everything.
 ════════════════════════════════ */
-.reveal {
+
+/* Only hide when JS is available (set by inline script in <head>) */
+.js-ready .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
 }
-.reveal.visible {
+
+/* When .visible is added by JS */
+.js-ready .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Fallback: if no .js-ready class, always show content */
+body:not(.js-ready) .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* Accessibility: respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 /* Staggered children */
